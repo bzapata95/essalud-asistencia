@@ -36,7 +36,7 @@ export const Form = styled.form`
   input {
     padding: 5px 12px;
     border: 1px solid #e6e6e6;
-    font: 12px;
+    font: 14px;
     border-radius: 5px 0 0 5px;
   }
   button {
@@ -44,7 +44,7 @@ export const Form = styled.form`
     border-radius: 0 5px 5px 0;
     border: 1px solid #0083c6;
     background-color: #0083c6;
-    font-size: 12px;
+    font-size: 14px;
     color: #fff;
     cursor: pointer;
 
