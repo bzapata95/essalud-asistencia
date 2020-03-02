@@ -5,6 +5,7 @@ export const searchPersonal = dni => {
     firestore
       .collection("personal")
       .where("dni", "==", `${dni}`)
+      .where("estado", "==", true)
       .get()
       .then(function(querySnapshot) {
         if (querySnapshot.docs) {

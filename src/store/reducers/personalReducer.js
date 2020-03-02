@@ -8,6 +8,10 @@ const personalReducer = (state = initState, action) => {
       return state;
     case "CREATE_PERSONAL_ERROR":
       return state;
+    case "UPDATE_PERSONAL_SUCCESS":
+      return state;
+    case "UPDATE_PERSONAL_ERROR":
+      return state;
     default:
       return state;
   }

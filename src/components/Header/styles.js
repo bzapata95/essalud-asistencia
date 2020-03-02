@@ -38,6 +38,10 @@ export const Nav = styled.nav`
       font-weight: bold;
     }
   }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const Auth = styled.div`

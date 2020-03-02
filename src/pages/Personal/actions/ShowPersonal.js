@@ -17,7 +17,7 @@ function ShowPersonal({ personal, match, auth }) {
       {personal ? (
         <Container>
           <HeaderContainer>
-            <h3>Datos de {personal.nombres}</h3>
+            <h1>Datos de {personal.nombres}</h1>
             <Link to={`/admin/personal/editar/${match.params.id}`}>
               <button>Editar datos del personal</button>
             </Link>

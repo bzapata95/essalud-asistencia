@@ -21,6 +21,7 @@ export const HeaderContainer = styled.div`
     border: none;
     border-radius: 5px;
     background-color: #0284c6;
+    color: #fff;
     cursor: pointer;
     a {
       color: #fff;
@@ -58,7 +59,7 @@ export const Table = styled.table`
   tbody {
     tr {
       cursor: pointer;
-      background-color: #aaa;
+      background-color: #fff;
       border-radius: inherit;
       transition: all 0.2s ease 0s;
       :hover {
@@ -88,26 +89,38 @@ export const Table = styled.table`
           padding: 3px 5px;
           border-radius: 5px;
         }
-        a {
+        /* a {
           padding: 0;
           margin: 0;
-        }
-      }
-      td.acctions {
-        button {
+        } */
+
+        a.options {
+          display: inline-block;
           margin-right: 10px;
-          background-color: transparent;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          padding: 5px 8px;
-          outline: none;
-          color: #efeff1;
+          color: #0284c6;
+          text-decoration: none;
           font-weight: bold;
-          :hover {
-            background-color: #0e0e10;
+          &:hover {
+            color: #222;
           }
         }
+      }
+      /* td {
+        display: flex; */
+      button {
+        border-radius: 5px;
+        /* margin-right: 10px; */
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        /* padding: 5px 8px; */
+        outline: none;
+        color: #0284c6;
+        font-weight: bold;
+        :hover {
+          color: #222;
+        }
+        /* } */
       }
     }
   }

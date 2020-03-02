@@ -15,12 +15,16 @@ export const HeaderContainer = styled.div`
   h3 {
     color: #222;
   }
+  a {
+    display: inline-block;
+  }
 
   button {
     padding: 10px 14px;
     border: none;
     border-radius: 5px;
     background-color: #0284c6;
+    color: #fff;
     cursor: pointer;
     a {
       color: #fff;

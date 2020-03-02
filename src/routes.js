@@ -8,9 +8,13 @@ import Asistencia from "./pages/Asistencia";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Personal from "./pages/Personal";
+import NotFound from "./pages/404";
 import ShowPersonal from "./pages/Personal/actions/ShowPersonal";
 import CrearPersonal from "./pages/Personal/actions/CrearPersonal";
 import EditarPersonal from "./pages/Personal/actions/EditarPersonal";
+
+import Justificaciones from "./pages/Justificaciones";
+import CrearJustificacion from "./pages/Justificaciones/actions/CrearJustificacion";
 
 import AsistenciaAdmin from "./pages/AsistenciaAdmin";
 
@@ -18,7 +22,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -39,8 +43,19 @@ export default function Routes() {
           path="/admin/personal/editar/:id"
           component={EditarPersonal}
         />
-        <Route exact path="/admin/personal/:id" component={ShowPersonal} />
+        <Route exact path="/admin/personal/show/:id" component={ShowPersonal} />
         <Route exact path="/admin/asistencia" component={AsistenciaAdmin} />
+        <Route
+          exact
+          path="/admin/justificaciones"
+          component={Justificaciones}
+        />
+        <Route
+          exact
+          path="/admin/justificacion/crear/:id"
+          component={CrearJustificacion}
+        />
+        <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

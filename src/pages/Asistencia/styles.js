@@ -59,6 +59,8 @@ export const PersonalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
 `;
 
 export const Button = styled.button`

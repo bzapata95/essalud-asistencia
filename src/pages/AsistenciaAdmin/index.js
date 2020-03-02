@@ -18,7 +18,7 @@ function AsistenciaAdmin({ asistencias, auth }) {
       <Header />
       <Container>
         <HeaderContainer>
-          <h3>Listado de personal registrado</h3>
+          <h1>Listado de asistencias del personal</h1>
           {/* <Link to="/admin/personal/crear">
             <button>Agregar nuevo personal</button>
           </Link> */}

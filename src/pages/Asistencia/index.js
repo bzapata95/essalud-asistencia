@@ -104,7 +104,7 @@ function Asistencia({
             <div
               style={{
                 width: "100%",
-                maxWidth: 280,
+                maxWidth: "300px",
                 display: "flex",
                 justifyContent: "space-between"
               }}

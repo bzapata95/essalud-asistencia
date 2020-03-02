@@ -40,7 +40,7 @@ function CrearPersonal({ createPersonal, auth, history }) {
       <Header />
       <Container>
         <HeaderContainer>
-          <h3>Creación de un nuevo personal</h3>
+          <h1>Creación de un nuevo personal</h1>
           <Link to="/admin/personal">
             <button>Volver al listado</button>
           </Link>
