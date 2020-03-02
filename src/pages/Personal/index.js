@@ -17,9 +17,9 @@ function Personal({ personales, auth }) {
       <Container>
         <HeaderContainer>
           <h3>Listado de personal registrado</h3>
-          <button>
-            <Link to="/admin/personal/crear">Agregar nuevo personal</Link>
-          </button>
+          <Link to="/admin/personal/crear">
+            <button>Agregar nuevo personal</button>
+          </Link>
         </HeaderContainer>
         <Table>
           <thead>
@@ -75,5 +75,10 @@ const mapStateToProps = state => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: "personal", orderBy: ["createdAt", "desc"] }])
+  firestoreConnect([
+    {
+      collection: "personal",
+      orderBy: ["createdAt", "desc"]
+    }
+  ])
 )(Personal);

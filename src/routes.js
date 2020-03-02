@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Header from "./components/Header";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Asistencia from "./pages/Asistencia";
 import Login from "./pages/Login";
@@ -11,26 +12,22 @@ import ShowPersonal from "./pages/Personal/actions/ShowPersonal";
 import CrearPersonal from "./pages/Personal/actions/CrearPersonal";
 import EditarPersonal from "./pages/Personal/actions/EditarPersonal";
 
-// const PrivateRoute = ({ component: Component, ...rest }) => {
-//   <Route
-//     {...rest}
-//     render={props => {
-//       isAuthenticated() ? (
-//         <>
-//           {" "}
-//           <Header />
-//           <Component {...props} />{" "}
-//         </>
-//       ) : (
-//         <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-//       );
-//     }}
-//   />;
-// };
+import AsistenciaAdmin from "./pages/AsistenciaAdmin";
 
 export default function Routes() {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+      />
       <Switch>
         <Route exact path="/" component={Asistencia} />
         <Route exact path="/admin" component={Login} />
@@ -43,6 +40,7 @@ export default function Routes() {
           component={EditarPersonal}
         />
         <Route exact path="/admin/personal/:id" component={ShowPersonal} />
+        <Route exact path="/admin/asistencia" component={AsistenciaAdmin} />
       </Switch>
     </BrowserRouter>
   );

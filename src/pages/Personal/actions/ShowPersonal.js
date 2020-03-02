@@ -7,7 +7,7 @@ import { compose } from "redux";
 
 import Header from "../../../components/Header";
 
-import { Container, HeaderContainer, Form } from "../styles";
+import { Container, HeaderContainer } from "../styles";
 
 function ShowPersonal({ personal, match, auth }) {
   if (!auth.uid) return <Redirect to="/admin" />;
@@ -18,11 +18,9 @@ function ShowPersonal({ personal, match, auth }) {
         <Container>
           <HeaderContainer>
             <h3>Datos de {personal.nombres}</h3>
-            <button>
-              <Link to={`/admin/personal/editar/${match.params.id}`}>
-                Editar datos del personal
-              </Link>
-            </button>
+            <Link to={`/admin/personal/editar/${match.params.id}`}>
+              <button>Editar datos del personal</button>
+            </Link>
           </HeaderContainer>
           <p style={{ marginTop: 20 }}>
             <strong>DNI: </strong>

@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
@@ -12,7 +12,9 @@ function Header({ signOut, auth }) {
   return (
     <Container>
       <SafeArea>
-        <img src={logo} alt="Logo" style={{ width: 50 }} />
+        <Link to="/dashboard">
+          <img src={logo} alt="Logo" style={{ width: 50 }} />
+        </Link>
         <Nav>
           <NavLink to="/admin/personal" activeClassName="active">
             Personal

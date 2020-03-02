@@ -41,9 +41,9 @@ function CrearPersonal({ createPersonal, auth, history }) {
       <Container>
         <HeaderContainer>
           <h3>Creación de un nuevo personal</h3>
-          <button>
-            <Link to="/admin/personal">Volver al listado</Link>
-          </button>
+          <Link to="/admin/personal">
+            <button>Volver al listado</button>
+          </Link>
         </HeaderContainer>
         <Form onSubmit={handleSubmit}>
           <input
