@@ -148,3 +148,13 @@ export const Form = styled.form`
     cursor: pointer;
   }
 `;
+
+export const SearchInput = styled.input`
+  padding: 8px 16px;
+  width: 300px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  float: right;
+`;

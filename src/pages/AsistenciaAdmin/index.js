@@ -7,11 +7,24 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 
-import { Container, HeaderContainer, Table } from "./styles";
+import { Container, HeaderContainer, Table, SearchInput } from "./styles";
 
 import Header from "../../components/Header";
 
+function searchingFor(term) {
+  return function(x) {
+    return x.dni.includes(term) || !term;
+  };
+}
+
 function AsistenciaAdmin({ asistencias, auth }) {
+  const [data, setData] = React.useState([]);
+  const [term, setTerm] = React.useState("");
+
+  React.useEffect(() => {
+    setData(asistencias);
+  }, [asistencias]);
+
   if (!auth.uid) return <Redirect to="/admin" />;
   return (
     <>
@@ -19,10 +32,15 @@ function AsistenciaAdmin({ asistencias, auth }) {
       <Container>
         <HeaderContainer>
           <h1>Listado de asistencias del personal</h1>
-          {/* <Link to="/admin/personal/crear">
-            <button>Agregar nuevo personal</button>
-          </Link> */}
         </HeaderContainer>
+        {data && (
+          <SearchInput
+            placeholder="Busqueda por dni"
+            name="term"
+            onChange={e => setTerm(e.target.value)}
+            maxLength="8"
+          />
+        )}
         <Table>
           <thead>
             <tr>
@@ -33,8 +51,8 @@ function AsistenciaAdmin({ asistencias, auth }) {
             </tr>
           </thead>
           <tbody>
-            {asistencias ? (
-              asistencias.map(asistencia => (
+            {data ? (
+              data.filter(searchingFor(term)).map(asistencia => (
                 <tr key={asistencia.id}>
                   <td>{asistencia.dni}</td>
                   <td>{asistencia.nombres}</td>

@@ -6,12 +6,20 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { updateEstado } from "../../store/actions/personalActions";
 
-import { Container, HeaderContainer, Table } from "./styles";
+import { Container, HeaderContainer, Table, SearchInput } from "./styles";
 
 import Header from "../../components/Header";
 
+function searchingFor(term) {
+  return function(x) {
+    return x.dni.toLowerCase().includes(term.toLowerCase()) || !term;
+  };
+}
+
 function Personal({ personales, auth, updateEstado }) {
   const [data, setData] = React.useState([]);
+  const [term, setTerm] = React.useState("");
+
   const handleStatus = (id, estado) => {
     updateEstado(id, estado);
   };
@@ -19,6 +27,7 @@ function Personal({ personales, auth, updateEstado }) {
   React.useEffect(() => {
     setData(personales);
   }, [personales]);
+
   if (!auth.uid) return <Redirect to="/admin" />;
   return (
     <>
@@ -30,6 +39,14 @@ function Personal({ personales, auth, updateEstado }) {
             <button>Agregar nuevo personal</button>
           </Link>
         </HeaderContainer>
+        {data && (
+          <SearchInput
+            placeholder="Busqueda por dni"
+            name="term"
+            onChange={e => setTerm(e.target.value)}
+            maxLength="8"
+          />
+        )}
         <Table>
           <thead>
             <tr>
@@ -44,7 +61,7 @@ function Personal({ personales, auth, updateEstado }) {
           </thead>
           <tbody>
             {data ? (
-              data.map(personal => (
+              data.filter(searchingFor(term)).map(personal => (
                 <tr key={personal.id}>
                   <td>
                     <Link to={`/admin/personal/editar/${personal.id}`}>

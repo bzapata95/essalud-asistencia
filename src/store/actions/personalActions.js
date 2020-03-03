@@ -89,3 +89,19 @@ export const justificar = id => {
       });
   };
 };
+
+export const deleteJustificacion = id => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    firestore
+      .collection("justificaciones")
+      .doc(`${id}`)
+      .delete()
+      .then(() => {
+        console.log("deleted");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+};
