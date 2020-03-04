@@ -78,12 +78,14 @@ function Personal({ personales, auth, updateEstado }) {
                     </span>
                   </td>
                   <td style={{ lineHeight: 2 }}>
-                    <Link
-                      className="options"
-                      to={`/admin/justificacion/crear/${personal.id}`}
-                    >
-                      Crear justificación
-                    </Link>
+                    {personal.estado && (
+                      <Link
+                        className="options"
+                        to={`/admin/justificacion/crear/${personal.id}`}
+                      >
+                        Crear justificación
+                      </Link>
+                    )}
                     <button
                       onClick={() => handleStatus(personal.id, personal.estado)}
                     >

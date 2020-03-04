@@ -32,7 +32,6 @@ const Justificaciones = ({
 
   React.useEffect(() => {
     setData(justificaciones);
-    console.log("actualizado");
   }, [justificaciones]);
 
   if (!auth.uid) return <Redirect to="/admin" />;
